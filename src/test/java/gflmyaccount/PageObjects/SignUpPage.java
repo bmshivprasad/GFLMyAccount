@@ -101,7 +101,7 @@ public class SignUpPage extends SignUp implements gflmyaccount.utilities.ExcelCo
 
     public static String ProspectName;
 
-    public void typeProspectname(int row) {
+   /* public void typeProspectname(int row) {
         // CustomerName = generics.getRandomCharacters(10);
         ProspectName = "AutoCust"+generics.getRandomCharacters(5) + "_" + LocalDate.now().format(DateTimeFormatter.ofPattern("ddMM"))
                 + "" + getRandomIntBetweenRange(100, 999);
@@ -115,7 +115,7 @@ public class SignUpPage extends SignUp implements gflmyaccount.utilities.ExcelCo
             e.printStackTrace();
         }
         generics.pause(5);
-    }
+    }  */
 
     public static void SetTestData(String dta, int rowt, int colt) throws IOException {
 
