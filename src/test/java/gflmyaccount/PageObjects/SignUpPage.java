@@ -55,7 +55,7 @@ public class SignUpPage extends SignUp implements gflmyaccount.utilities.ExcelCo
         }
     }
 
-    @FindBy(xpath = "//button[contains(text(),'PROSPECTS')]/i")
+    @FindBy(xpath = "//input[@formcontrolname='firstName']")
     public WebElement btnAddCustomer;
 
 
