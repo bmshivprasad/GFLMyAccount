@@ -17,7 +17,7 @@ public interface Configurations {
 
     String configurationPath = getProjectDir() + "/Configuration/config.properties";
 
-    String END_TO_END = "EndToEnd";
+    String PROFILE = "myprofile";
     String Containers = "Containers";
     String Prospect = "Prospect";
     String ProspectAll = "ProspectAll";

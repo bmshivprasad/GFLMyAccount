@@ -2,5 +2,5 @@ package gflmyaccount.testcases;
 
 import gflmyaccount.base.EnhancedBaseClass;
 
-public class SignUp extends EnhancedBaseClass {
+public class profile extends EnhancedBaseClass {
 }

@@ -4,11 +4,11 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 
-import gflwishes.PageObjects.LoginPage;
-import gflwishes.utilities.Configurations;
-import gflwishes.utilities.ExcelUtils;
-import gflwishes.utilities.ExtentInitializer;
-import gflwishes.utilities.ZipUtils;
+import gflmyaccount.PageObjects.LoginPage;
+import gflmyaccount.utilities.Configurations;
+import gflmyaccount.utilities.ExcelUtils;
+import gflmyaccount.utilities.ExtentInitializer;
+import gflmyaccount.utilities.ZipUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
@@ -29,7 +29,7 @@ import org.testng.internal.Utils;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Method;
+
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -37,8 +37,8 @@ import java.util.logging.Level;
 
 public class EnhancedBaseClass extends ExtentInitializer implements Configurations {
 
-    public WebDriver myaccountDriver;
-    public WebDriver fleetMapperDriver;
+    public WebDriver gflmyaccountDriver;
+
 
     public SoftAssert sa;
 
@@ -64,10 +64,10 @@ public class EnhancedBaseClass extends ExtentInitializer implements Configuratio
             //wishesDriver = initiateDriver();
             //wishesDriver.get(BASE_URL);
       //  } else {
-            fleetMapperDriver = initiateDriver();
-            fleetMapperDriver.get(FM_URL);
-            LoginPage login = new LoginPage(fleetMapperDriver);
-            login.loginAs(USER_NAME, PASSWORD);
+        gflmyaccountDriver= initiateDriver();
+        gflmyaccountDriver.get(FM_URL);
+            LoginPage login = new LoginPage(gflmyaccountDriver);
+            //login.loginAs(USER_NAME, PASSWORD);
         }
 
    // }
@@ -133,8 +133,8 @@ public class EnhancedBaseClass extends ExtentInitializer implements Configuratio
                 logger.log(Status.FAIL, MarkupHelper.createLabel(testName + " : FAILED", ExtentColor.RED));
                 logger.log(Status.FAIL,
                         MarkupHelper.createLabel(testResult.getThrowable() + " : FAILED", ExtentColor.RED));
-                if (methodName.contains("WS")) screenshotPath = getExtentScreenShot(myaccountDriver, testName, false);
-                else screenshotPath = getExtentScreenShot(fleetMapperDriver, testName, false);
+                if (methodName.contains("WS")) screenshotPath = getExtentScreenShot(gflmyaccountDriver, testName, false);
+                else screenshotPath = getExtentScreenShot(gflmyaccountDriver, testName, false);
                 logger.fail("Test Case Failed Snapshot is attached below");
                 logger.addScreenCaptureFromPath(screenshotPath);
                 log4j.error(testName + " : Fail");
@@ -159,7 +159,7 @@ public class EnhancedBaseClass extends ExtentInitializer implements Configuratio
             log4j.info("<strong>+++++++++++++++++++++++++++++++++ Closing the " + BROWSER +
                     " browser instance +++++++++++++++++++++++++++++++++</strong>");
            // cleanupDriver(fleetMapperDriver);
-            cleanupDriver(myaccountDriver);
+            cleanupDriver(gflmyaccountDriver);
         }
     }
 
@@ -242,8 +242,8 @@ public class EnhancedBaseClass extends ExtentInitializer implements Configuratio
 
     public void failure(String log) {
         sa.assertTrue(false, log);
-        if (methodName.contains("WS")) getExtentScreenShot(myaccountDriver, getCurrentTimeStampString(), true);
-        else getExtentScreenShot(fleetMapperDriver, getCurrentTimeStampString(), true);
+        if (methodName.contains("WS")) getExtentScreenShot(gflmyaccountDriver, getCurrentTimeStampString(), true);
+        else getExtentScreenShot(gflmyaccountDriver, getCurrentTimeStampString(), true);
         logger.fail(MarkupHelper.createLabel(log + " : FAIL", ExtentColor.RED));
         log4j.error(log + " : FAIL");
     }

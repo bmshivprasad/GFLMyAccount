@@ -2,13 +2,13 @@ package gflmyaccount.utilities;
 
 public interface ExcelColumns {
 
-    int SITE_ADDRESS = 0;
-    int POSTAL_CODE = 1;
-    int CUSTOMER_NAME = 2;
-    int SITE_NAME = 3;
-    int MATERIAL = 4;
-    int CONTAINER_SIZE = 5;
-    int TYPE_OF_HAUL = 6;
+    int FIRSTNAME = 0;
+    int LASTNAME = 1;
+    int EMAIL = 2;
+    int PWD= 3;
+    int RE_ENTER_PASSWORD = 4;
+    int SECURITYQUESTIONS= 5;
+    int SECURITYANSWER = 6;
     int STATUS = 7;
     int VEHICLE_NAME = 8;
     int DISPATCHER = 9;
