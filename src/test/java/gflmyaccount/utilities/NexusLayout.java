@@ -45,7 +45,6 @@ public class NexusLayout extends HTMLLayout implements Configurations {
 
         String log = buffer.toString();
         StringBuilder newBuffer = new StringBuilder();
-
         for (int s = 0; s < log.split("\n").length; s++) {
             if (log.split("\n")[s].contains("<td")) {
                 if (event.getLevel().toString().equalsIgnoreCase("WARN")) {
@@ -99,3 +98,4 @@ public class NexusLayout extends HTMLLayout implements Configurations {
     }
 
 }
+

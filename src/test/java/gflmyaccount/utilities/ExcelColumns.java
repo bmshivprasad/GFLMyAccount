@@ -9,11 +9,11 @@ public interface ExcelColumns {
     int RE_ENTER_PASSWORD = 4;
     int SECURITYQUESTIONS= 5;
     int SECURITYANSWER = 6;
-    int STATUS = 7;
-    int VEHICLE_NAME = 8;
-    int DISPATCHER = 9;
-    int DISPATCHER_NOTES = 10;
-    int DRIVER = 11;
+    int PHONE = 7;
+    int EXTENSION = 8;
+    int MOBILE = 9;
+    int FAX = 10;
+    int LANGUAGE= 11;
     int DRIVER_NOTES = 12;
     int CUSTOMER_ID = 13;
     int BRANCH_BU = 14;
