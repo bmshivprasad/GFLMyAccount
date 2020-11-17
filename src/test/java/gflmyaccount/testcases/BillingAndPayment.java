@@ -205,4 +205,46 @@ public class BillingAndPayment extends EnhancedBaseClass {
 
 
     }
+    
+    @Test
+    public void TC07_First_time_when_user_signin_only_3_menus_display_Overview_Accounts_and_Support() throws IOException, InterruptedException
+    {
+
+        testCaseLog("TC07_First_time_when_user_signin_only_3_menus_display_Overview_Accounts_and_Support");
+        LoginPage login = new LoginPage(gflmyaccountDriver);
+        login.loginAs(USER_NAME, PASSWORD);
+        BillingAndPaymentPage bp=new BillingAndPaymentPage(gflmyaccountDriver);
+       
+        if(bp.isDefaultMenuDispalyedOnFirstSignIn())
+        {
+            success("Only Overview, Accounts and Support menu displayed on first time when user signin.");
+        }
+        else
+        {
+            failure("Only Overview, Accounts and Support menu displayed on first time when user signin.");
+        }
+
+    }
+
+    @Test
+    public void TC_08_Verify_after_account_selection_when_user_go_back_to_overview_page_selected_account_will_be_populated() throws IOException, InterruptedException
+    {
+
+        testCaseLog("TC_08_Verify_after_account_selection_when_user_go_back_to_overview_page_selected_account_will_be_populated");
+        LoginPage login = new LoginPage(gflmyaccountDriver);
+        login.loginAs(USER_NAME, PASSWORD);
+        BillingAndPaymentPage bp=new BillingAndPaymentPage(gflmyaccountDriver);
+        bp.clickonfirstAccountfromOverViewPage();
+        bp.clickOverviewTab();
+        if(bp.isSelectedAccountDislayedonAllPages())
+        {
+            success("selected account is populated on Account selector dropdown.");
+        }
+        else
+        {
+            failure("selected account is populated on Account selector dropdown.");
+        }
+
+    }
+
 }

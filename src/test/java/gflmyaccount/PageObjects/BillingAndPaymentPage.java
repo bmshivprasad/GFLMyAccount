@@ -21,7 +21,8 @@ public class BillingAndPaymentPage extends EnhancedBaseClass {
         generics = new Generics(baseDriver);
         log4j = Logger.getLogger("LandingPage");
     }
-
+    
+    
     @FindBy(xpath = "//i[text()='power_settings_new']")
     public WebElement logoutbutton;
 
@@ -61,6 +62,38 @@ public class BillingAndPaymentPage extends EnhancedBaseClass {
             return false;
 
     }
+    
+    @FindBy(xpath = "//a[contains(.,'OVERVIEW')]")
+    public WebElement mnu_overview;
+
+    @FindBy(xpath = "//a[contains(.,'ACCOUNTS')]")
+    public WebElement mnu_accounts;
+  
+    @FindBy(xpath = "//a[contains(.,'Support')]")
+    public WebElement mnu_support;
+    
+    @FindBy(xpath = "//div[@id='Navigation']//a")
+    public List<WebElement> mnu_available;
+    
+    
+    public boolean isDefaultMenuDispalyedOnFirstSignIn() {
+    	
+    	System.out.println("LIST SIZE" +mnu_available.size());
+    	
+    	if(mnu_available.size() == 3)
+    	{
+    		if(generics.isPresent(mnu_overview) && generics.isPresent(mnu_accounts) && generics.isPresent(mnu_support)) 
+    			return true;
+    		else
+    			return false; 	
+    	}
+    	else
+    	{
+      		return false; 	
+    	}
+    }
+    
+    
 
     @FindBy(xpath = "(//div[contains(@class,'ng-option')]/span[2])[1]")
     public WebElement firstAccountfromDP;
@@ -93,8 +126,10 @@ public class BillingAndPaymentPage extends EnhancedBaseClass {
 
     @FindBy(xpath = "//a[text()='OVERVIEW']")
     public WebElement tabOverview;
-
-
+    
+    @FindBy(xpath = "//a[text()='ACCOUNTS']")
+    public WebElement tabAccounts;
+    
     public void clickonMyService()
     {
         generics.waitForElementVisible(tabMyService);
@@ -126,6 +161,8 @@ public class BillingAndPaymentPage extends EnhancedBaseClass {
         testStepsLog("Clicked on Support tab");
         generics.pause(8);
     }
+    
+    
 
     public void clickOverviewTab()
     {
@@ -134,7 +171,14 @@ public class BillingAndPaymentPage extends EnhancedBaseClass {
         generics.pause(8);
     }
 
+    public void clickOnAccountsTab()
+    {
+        generics.clickOn(tabAccounts);
+        testStepsLog("Clicked on Accounts tab");
+        generics.pause(8);
+    }
 
+    
     public  boolean isAllMenuVisible()
     {
         generics.pause(5);
@@ -168,7 +212,6 @@ public class BillingAndPaymentPage extends EnhancedBaseClass {
     @FindBy(xpath = "(//div[contains(@class,'owl-stage')]/div[contains(@class,'owl-item')])[3]//a[contains(@class,'account_link')]")
     public WebElement newAccountOnOverviewPage;
 
-
     public void clickonfirstAccountfromOverViewPage()
     {
         generics.waitForElementVisible(firstAccountOnOverviewPage);
@@ -177,6 +220,7 @@ public class BillingAndPaymentPage extends EnhancedBaseClass {
         generics.clickOn(firstAccountOnOverviewPage);
         generics.pause(5);
     }
+     
     public void clickonSecondAccountfromOverViewPage()
     {
         generics.waitForElementVisible(newAccountOnOverviewPage);
