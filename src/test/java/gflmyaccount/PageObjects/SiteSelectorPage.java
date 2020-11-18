@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import javax.swing.text.Element;
 import java.util.List;
 
 public class SiteSelectorPage extends EnhancedBaseClass {
@@ -66,6 +67,13 @@ public class SiteSelectorPage extends EnhancedBaseClass {
 		generics.clickOn(siteValue1);
 		generics.pause(2);
 	}
+	public void clickOnSecondSiteFromSelector() {
+
+		siteName = generics.getText(siteValue2);
+		System.out.println(siteName);
+		generics.clickOn(siteValue2);
+		generics.pause(2);
+	}
 
 	public String getSelectedSiteName() {
 
@@ -88,4 +96,29 @@ public class SiteSelectorPage extends EnhancedBaseClass {
 		else
 			return false;
 	}
+
+	@FindBy(xpath = "//mat-select[@panelclass='pageSelectorPanelOverlay']")
+	public WebElement dppagesize;
+
+	@FindBy(xpath = "(//mat-option)[last()]/span")
+	public WebElement lastoption;
+
+	public void selectlastpage()
+	{
+		generics.moveTo(dppagesize);
+		generics.clickOn(dppagesize);
+		generics.clickOn(lastoption);
+	}
+
+	@FindBy(xpath = "//tbody//tr")
+	public List<WebElement> tablerow;
+
+	public int getNumberofrow()
+	{
+		generics.testStepsLog("Number of Records : " + String.valueOf(tablerow.size()));
+		return tablerow.size();
+	}
+
+
+
 }

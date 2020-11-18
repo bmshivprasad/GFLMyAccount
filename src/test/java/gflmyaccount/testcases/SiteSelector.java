@@ -123,16 +123,19 @@ public class SiteSelector extends EnhancedBaseClass {
         login.loginAs(USER_NAME, PASSWORD);
         BillingAndPaymentPage bp =new BillingAndPaymentPage(gflmyaccountDriver);
         SiteSelectorPage sp=new SiteSelectorPage(gflmyaccountDriver);
-        bp.clickOverviewTab();
         bp.clickonfirstAccountfromOverViewPage();
-        
         if(sp.isSiteSelectorDisplayed()) {
-        	success("Site Selector dropdown is available on my service page.");
+            success("Site Selector dropdown is available on my service page.");
         }
         else
         {
             failure("Site Selector dropdown is available on my service page.");
         }
+
+        bp.clickonMyService();
+        bp.clickonBillingPayment();
+
+
         
         sp.clickOnSiteSelector();
         
@@ -145,21 +148,36 @@ public class SiteSelector extends EnhancedBaseClass {
         }
         
         sp.clickOnFirstSiteFromSelector();
-        
-        if(sp.isSelectedSiteDislayed()) {
+        if(sp.isSelectedSiteDislayed())
+        {
         	success("Site switched successfully.");
         }
         else
         {
             failure("Site switched successfully.");
         }
-        
-        //changes after selecting site on page like amopunt and grid records
-        
+        int len1=sp.getNumberofrow();
+        sp.clickOnSiteSelector();
+        sp.clickOnSecondSiteFromSelector();
+
+        if(sp.isSelectedSiteDislayed())
+        {
+            success("Site switched successfully.");
+        }
+        else
+        {
+            failure("Site switched successfully.");
+        }
+        int len2=sp.getNumberofrow();
+        if(len1!=len2)
+            success("Records updated based on site selection");
+        else
+            failure("Records not updated based on site selection");
+
     }
     
     @Test
-    public void TC_05_Verify_site_nickname_displayed_in_site_selector() throws IOException, InterruptedException {
+    public void TC05_Verify_site_nickname_displayed_in_site_selector() throws IOException, InterruptedException {
 
         testCaseLog("TC_05_Verify_site_nickname_displayed_in_site_selector");
         LoginPage login = new LoginPage(gflmyaccountDriver);

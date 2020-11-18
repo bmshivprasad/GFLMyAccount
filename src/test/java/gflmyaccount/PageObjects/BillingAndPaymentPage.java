@@ -129,6 +129,9 @@ public class BillingAndPaymentPage extends EnhancedBaseClass {
     
     @FindBy(xpath = "//a[text()='ACCOUNTS']")
     public WebElement tabAccounts;
+
+    @FindBy(xpath = "//a[text()='BILLING & Payments']")
+    public WebElement tabBillingAndPayement;
     
     public void clickonMyService()
     {
@@ -141,6 +144,12 @@ public class BillingAndPaymentPage extends EnhancedBaseClass {
     {
         generics.clickOn(tabServiceDetail);
         testStepsLog("Clicked on Service Details tab");
+        generics.pause(8);
+    }
+    public void clickonBillingPayment()
+    {
+        generics.clickOn(tabBillingAndPayement);
+        testStepsLog("Clicked on Billing & Payments tab");
         generics.pause(8);
     }
     public void clickonMyDocument()
