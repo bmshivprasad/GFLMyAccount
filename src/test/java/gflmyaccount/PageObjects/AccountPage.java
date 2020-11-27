@@ -4,6 +4,7 @@ import com.lowagie.text.Cell;
 import gflmyaccount.base.Generics;
 import gflmyaccount.testcases.profile;
 import gflmyaccount.utilities.ExcelColumnsAccount;
+import io.github.bonigarcia.wdm.SeleniumServerStandaloneManager;
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -21,7 +22,7 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
 
     WebDriver localDriver;
     Generics generics;
-    SoftAssert sassert=new SoftAssert();
+    SoftAssert sassert = new SoftAssert();
 
 //    static String USERNAME1;
 //    static String pswrd1;
@@ -47,7 +48,7 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
         log4j = Logger.getLogger("LoginLogoutPage");
     }
 
-    @FindBy(css ="[href='/en-CA/accounts']")
+    @FindBy(css = "[href='/en-CA/accounts']")
     public WebElement accountlink;
     @FindBy(xpath = "//*[text()='LINK ACCOUNT']")
     public WebElement linkaccountbutton;
@@ -55,37 +56,37 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
     public WebElement innerlinkaccountbutton;
     @FindBy(xpath = "//*[text()='GFL has two easy ways for you to link an account']")
     public WebElement linkaccountpopup;
-    @FindBy(css=".main_link_green")
+    @FindBy(css = ".main_link_green")
     public List<WebElement> linkingoptions;
-//    @FindBy(xpath="//*[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='go back']")
+    //    @FindBy(xpath="//*[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='go back']")
 //    public WebElement gobackbutton;
-    @FindBy(xpath="//h2[text()='Please enter the account number and postal code below.']")
+    @FindBy(xpath = "//h2[text()='Please enter the account number and postal code below.']")
     public WebElement accountnumberpopup;
-    @FindBy(css="[formcontrolname='accountNumber']")
+    @FindBy(css = "[formcontrolname='accountNumber']")
     public WebElement accountnumberfield;
-    @FindBy(css="[formcontrolname='billingZipCode']")
+    @FindBy(css = "[formcontrolname='billingZipCode']")
     public WebElement postalcodefield;
-    @FindBy(xpath="//h2[text()='Please enter the invoice number and invoice amount below.']")
+    @FindBy(xpath = "//h2[text()='Please enter the invoice number and invoice amount below.']")
     public WebElement invoicenumberpopup;
-    @FindBy(css="[formcontrolname='invoiceNumber']")
+    @FindBy(css = "[formcontrolname='invoiceNumber']")
     public WebElement invoicenumberfield;
-    @FindBy(css="input[formcontrolname='invoiceAmount']")
+    @FindBy(css = "input[formcontrolname='invoiceAmount']")
     public WebElement invoiceamountfield;
-    @FindBy(css="[role='gridcell']")
+    @FindBy(css = "[role='gridcell']")
     public List<WebElement> linkedaccounttable;
     @FindBy(css = "snack-bar-container [role='alert'] div")
     public WebElement linkaccountmessage;
 
     @FindBy(css = "app-linked-accounts [data-label='Account'] a")
     public List<WebElement> linkacctable;
-    @FindBy(css="app-pending-accounts [data-label='Account']")
+    @FindBy(css = "app-pending-accounts [data-label='Account']")
     public List<WebElement> pendinglinkstable;
-    @FindBy(css="app-linked-accounts [data-label='Account_Name']")
+    @FindBy(css = "app-linked-accounts [data-label='Account_Name']")
     public List<WebElement> linkaccsitename;
-    @FindBy(css="app-linked-accounts [data-label='Authorized Users']")
+    @FindBy(css = "app-linked-accounts [data-label='Authorized Users']")
     public List<WebElement> authorizedusercolumn;
 
-//    @FindBy(css = "tbody[role='rowgroup'] .cdk-column-Account")
+    //    @FindBy(css = "tbody[role='rowgroup'] .cdk-column-Account")
 //    public List<WebElement> linkacctable;
 //    @FindBy(css="tbody[role='rowgroup'] .cdk-column-ACCOUNT_NUMBER")
 //    public List<WebElement> pendinglinkstable;
@@ -93,49 +94,51 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
 //    public List<WebElement> linkaccsitename;
 //    @FindBy(css="tbody[role='rowgroup'] .cdk-column-Authorized_Users")
 //    public List<WebElement> authorizedusercolumn;
-    @FindBy(xpath="//button[(text()='Request Access')]")
+    @FindBy(xpath = "//button[(text()='Request Access')]")
     public WebElement requestaccess;
-    @FindBy(css="snack-bar-container mat-icon:nth-child(3)")
+    @FindBy(css = "snack-bar-container mat-icon:nth-child(3)")
     public WebElement closemessage;
-    @FindBy(xpath="//*[contains(text(),'Unlink')]")
+    @FindBy(xpath = "//*[contains(text(),'Unlink')]")
     public WebElement unlinkaccbuttton;
-    @FindBy(xpath = "//*[contains(text(),'Unlink Account')]")
+    @FindBy(xpath = "//*[contains(text(),'Unlink')]")
     public WebElement unlinkaccountbuttton;
-    @FindBy(xpath="//button[contains(text(),'Unlink Site')]")
+    @FindBy(xpath = "//button[contains(text(),'Unlink Site')]")
     public WebElement unlinksitebuttton;
-    @FindBy(xpath="//*[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='remove link']")
+    @FindBy(xpath = "//*[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='remove link']")
     public WebElement removelink;
-    @FindBy(css="div .card input[type='text']")
+    @FindBy(css = "div .card input[type='text']")
     public WebElement accsitenamefield;
     @FindBy(xpath = "//*[contains(text(),'Save')]")
     public WebElement savechanges;
     @FindBy(xpath = "//*[(text()='Linked Accounts')]")
     public WebElement linkedaccounttext;
-    @FindBy(css="button .action")
+    @FindBy(css = "button .action")
     public WebElement adduser;
-    @FindBy(css="div .email-auths input")
-    public List <WebElement> adduseremailfield;
-    @FindBy(css="div .user span")
+    @FindBy(css = "div .email-auths input")
+    public List<WebElement> adduseremailfield;
+    @FindBy(css = "div .user span")
     public List<WebElement> uservalue;
-    @FindBy(css="mat-error[role='alert']")
-    public  WebElement authorizedusererror;
-    @FindBy(css=".ac_info .ac_block")
-    public  WebElement accsiteinfo;
-    @FindBy(css=" .ac_block")
+    @FindBy(css = "mat-error[role='alert']")
+    public WebElement authorizedusererror;
+    @FindBy(css = ".ac_info .ac_block")
+    public WebElement accsiteinfo;
+    @FindBy(css = " .ac_block")
     public List<WebElement> accountdetails;
-    @FindBy(css="div .ac_info h5")
-    public  List<WebElement> sitedetails;
-    @FindBy(css=" .button_main_grey")
-    public List <WebElement> gobackgrey;
-
-
+    @FindBy(xpath = "//*[text()='Account Number']/following-sibling::*")
+    public WebElement accountname;
+    @FindBy(xpath = "//*[text()='Billing TYPE']/following-sibling::*")
+    public WebElement billingname;
+    @FindBy(css = "div .ac_info h5")
+    public List<WebElement> sitedetails;
+    @FindBy(css = " .button_main_grey")
+    public List<WebElement> gobackgrey;
 
 
     static String logerror;
     static String titlelpage;
 
 
-    public void click_on_account_page() throws IOException{
+    public void click_on_account_page() throws IOException {
         generics.waitForElementVisible(accountlink);
         generics.isClickable(accountlink);
         generics.clickOnJS(accountlink);
@@ -154,6 +157,7 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
         generics.waitForElementVisible(linkaccountpopup);
         //generics.pause(2);
     }
+
     public void click_on_inner_linkbutton() throws IOException {
 
         generics.pause(1);
@@ -162,7 +166,7 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
 
     }
 
-    public void click_on_link_by_accountnumber() throws IOException{
+    public void click_on_link_by_accountnumber() throws IOException {
         generics.waitForElementVisible(linkingoptions.get(0));
         generics.isClickable(linkingoptions.get(0));
         testStepsLog("Clicking on |Link By Account Number option|");
@@ -171,7 +175,7 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
         testStepsLog("Link by Account number popup opened");
     }
 
-    public void click_on_link_by_invoicenumber() throws IOException{
+    public void click_on_link_by_invoicenumber() throws IOException {
         //generics.waitForElementVisible(linkingoptions.get(1));
         generics.isClickable(linkingoptions.get(1));
         testStepsLog("Clicking on |Link By Invoice Number option|");
@@ -180,58 +184,62 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
         testStepsLog("Link by Invoice number popup opened");
         //generics.pause(2);
     }
-    public void fill_account_number_values(String account_number,String postal_code) throws IOException{
-       // generics.waitForElementVisible(accountnumberfield);
+
+    public void fill_account_number_values(String account_number, String postal_code) throws IOException {
+        // generics.waitForElementVisible(accountnumberfield);
         generics.isClickable(accountnumberfield);
         generics.waitForElementVisible(accountnumberfield);
-        generics.type(accountnumberfield,account_number);
+        generics.type(accountnumberfield, account_number);
         generics.pause(2);
-        generics.type(postalcodefield,postal_code);
+        generics.type(postalcodefield, postal_code);
         generics.pause(2);
         testStepsLog("Account values filled\n");
     }
-    public void fill_invoice_number_values(String invoice_number,String invoice_amount) throws IOException{
+
+    public void fill_invoice_number_values(String invoice_number, String invoice_amount) throws IOException {
         //generics.pause(10);
         generics.isClickable(invoicenumberfield);
-        generics.type(invoicenumberfield,invoice_number);
+        generics.type(invoicenumberfield, invoice_number);
         generics.pause(2);
-        generics.type(invoiceamountfield,invoice_amount);
+        generics.type(invoiceamountfield, invoice_amount);
         generics.pause(2);
         testStepsLog("Invoice values filled\n");
     }
-    public void click_on_goback() throws IOException{
+
+    public void click_on_goback() throws IOException {
         //generics.waitForElementVisible(gobackbutton);
         try {
-            if(generics.isPresent(gobackgrey.get(0)))
-            for (WebElement goback : gobackgrey) {
-                String gobacktext = goback.getText();
-                if (gobacktext.trim().equalsIgnoreCase("go back"))
-                    generics.isClickableElement(goback);
-                generics.clickOn(goback);
-            }
-        }catch(Exception E)
-        {
+            if (generics.isPresent(gobackgrey.get(0)))
+                for (WebElement goback : gobackgrey) {
+                    String gobacktext = goback.getText();
+                    if (gobacktext.trim().equalsIgnoreCase("go back"))
+                        generics.isClickableElement(goback);
+                    generics.clickOn(goback);
+                }
+        } catch (Exception E) {
 
         }
         //generics.pause(2);
     }
+
     public void account_setting_messae_displayed(String acc) throws IOException {
-        if(linkaccountmessage.getText().contains("Account is updated successfully")) {
+        if (linkaccountmessage.getText().contains("updated successfully")) {
             testStepsLog("Test Pass-->Account updated successfully--->" + acc + "\n");
-        }else if (linkaccountmessage.getText().contains("Form has invalid entries")) {
-            testStepsLog("Test Fail-->Account details not updated--->" + acc + "\n");
+        } else if (linkaccountmessage.getText().contains("invalid entries")) {
+            testFailLog("Test Fail-->Account details not updated--->" + acc + "\n");
+        }else{
+            testFailLog("Test Fail-->Account details not updated---> "+linkaccountmessage.getText()+" message displaying for--> " + acc + "\n");
         }
-            generics.pause(1);
-            if (generics.isPresent(closemessage)) {
-                generics.clickOnJS(closemessage);
-            }
-//        if (generics.isPresent(gobackbutton)) {
-//            click_on_goback();
-//        }
+        generics.pause(1);
+        if (generics.isPresent(closemessage)) {
+            generics.clickOnJS(closemessage);
+        }
         click_on_goback();
     }
+
+
     public void link_account_message_displayed(String acc)throws IOException {
-        //generics.pause(1);
+        generics.pause(1);
         if (linkaccountmessage.getText().contains("Account has been successfully linked") || linkaccountmessage.getText().contains("Site has been successfully linked")) {
             testStepsLog("Test Pass-->Account linked successfully--->" + acc + "\n");
             generics.pause(1);
@@ -239,37 +247,25 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
                 generics.clickOnJS(closemessage);
             }
         } else if (linkaccountmessage.getText().contains("must be linked by invoice number")) {
-            testStepsLog("Test Fail-->>Account linking failed due to Validation--->" + acc + "\n");
+            testFailLog("Test Fail-->>Account linking failed due to Validation--->" + acc + "\n");
             testStepsLog("Validation is \n" + linkaccountmessage.getText() + "\n");
             generics.pause(1);
             if (generics.isPresent(closemessage)) {
                 generics.clickOnJS(closemessage);
             }
-//            if (generics.isPresent(gobackbutton)) {
-//                click_on_goback();
-//            }
-//            if (generics.isPresent(gobackbutton)) {
-//                click_on_goback();
-//            }
             click_on_goback();
             click_on_goback();
         } else if (linkaccountmessage.getText().contains("You are already linked")) {
-            testStepsLog("Test Fail-->>Account linking failed because Account is already linked--->" + acc + "\n");
+            testFailLog("Test Fail-->>Account linking failed because Account is already linked--->" + acc + "\n");
             generics.pause(1);
             if (generics.isPresent(closemessage)) {
                 generics.clickOnJS(closemessage);
             }
-            generics.pause(1);
-//            if (generics.isPresent(gobackbutton)) {
-//                click_on_goback();
-//            }
-//            if (generics.isPresent(gobackbutton)) {
-//                click_on_goback();
-//            }
+//            generics.pause(1);
             click_on_goback();
             click_on_goback();
         } else if (linkaccountmessage.getText().contains("already a pending request to link")) {
-            testStepsLog("Test Fail-->There is already a pending request to link this account !--->" + acc + "\n");
+            testFailLog("Test Fail-->There is already a pending request to link this account !--->" + acc + "\n");
             generics.pause(1);
             if (generics.isPresent(closemessage)) {
                     generics.clickOnJS(closemessage);
@@ -283,7 +279,7 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
             click_on_goback();
             click_on_goback();
         } else if (linkaccountmessage.getText().contains("Account Link Request has been sent ") || linkaccountmessage.getText().contains("Site Link Request has been sent")) {
-            testStepsLog("Test Fail-->Account linking request has been set successfully as account is already linked to another user--->" + acc + "\n");
+            testFailLog("Test Fail-->Account linking request has been set successfully as account is already linked to another user--->" + acc + "\n");
             generics.pause(1);
             if (generics.isPresent(closemessage)) {
                     generics.clickOnJS(closemessage);
@@ -293,7 +289,7 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
 //                }
             click_on_goback();
         } else {
-                testStepsLog("Test Fail-->>Account linking failed due to Error-->" + acc + "\n");
+                testFailLog("Test Fail-->>Account linking failed due to Error-->" + acc + "\n");
                 testStepsLog("Error is \n" + linkaccountmessage.getText() + "\n");
                 generics.pause(1);
                 if (generics.isPresent(closemessage)) {
@@ -323,11 +319,11 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
         }
     }
     public void check_if_account_linked(String acc) throws IOException {
-          generics.pause(2);
+          generics.pause(1);
         if (generics.isPresent(linkaccountmessage)) {
             link_account_message_displayed(acc);
         } else if (generics.isPresent(requestaccess)) {
-            testStepsLog("Test Fail-->Account already linked to another user, need to request access for-->" + acc + "\n");
+            testFailLog("Test Fail-->Account already linked to another user, need to request access for-->" + acc + "\n");
             generics.clickOnJS(requestaccess);
             link_account_message_displayed(acc);
 
@@ -367,7 +363,7 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
         }
             if(!flag)
             {
-                testStepsLog("Test Fail-->Account is not present in linked Accounts table-->" + acc1 + " For user--->"+user+"\n");
+                testFailLog("Test Fail-->Account is not present in linked Accounts table-->" + acc1 + " For user--->"+user+"\n");
             }
 
 
@@ -406,7 +402,7 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
         }
         if(!flag)
         {
-            testStepsLog("Test Fail-->Account is not present in Pending links table-->" + acc1 + " For user--->"+user+"\n");
+            testFailLog("Test Fail-->Account is not present in Pending links table-->" + acc1 + " For user--->"+user+"\n");
         }
 
     }
@@ -424,7 +420,7 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
         }
         if(!flag)
         {
-            testStepsLog("Test Fail-->Updated Nickname is not present in Accounts links table -->" + acc + " For user--->"+user+"\n");
+            testFailLog("Test Fail-->Updated Nickname is not present in Accounts links table -->" + acc + " For user--->"+user+"\n");
         }
 
     }
@@ -445,6 +441,7 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
         click_on_link_by_accountnumber();
         fill_account_number_values(acc,postal);
         click_on_inner_linkbutton();
+        generics.pause(1);
         check_if_account_linked(acc);
         generics.waitForElementVisible(linkedaccounttext);
     }
@@ -454,6 +451,7 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
         click_on_link_by_invoicenumber();
         fill_invoice_number_values(inv,amt);
         click_on_inner_linkbutton();
+        generics.pause(1);
         check_if_account_linked(inv);
         generics.waitForElementVisible(linkedaccounttext);
     }
@@ -464,16 +462,20 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
         generics.pause(1);
         if(flag) {
             generics.waitForElementVisible(unlinkaccbuttton);
+
             if (generics.isPresent(unlinkaccbuttton)) {
+                testStepsLog("Clicking on Unlink \n");
                 generics.clickOn(unlinkaccbuttton);
             }
             if (generics.isPresent(unlinksitebuttton)) {
                 generics.clickOn(unlinksitebuttton);
             }
             generics.isClickable(removelink);
+            testStepsLog("Clicking on Remove link \n");
             generics.clickOn(removelink);
             unlink_account_site_message_displayed(acc, username);
             generics.waitForElementVisible(linkedaccounttext);
+            testStepsLog("Back to Link account page \n");
         }
         if(!flag)
         {
@@ -482,69 +484,69 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
     }
     public void verify_acc_details(String acc,String username,String type)throws IOException{
         if(generics.isPresent(unlinkaccountbuttton)) {
-            if (generics.getText(accountdetails.get(0)).contentEquals(acc)) {
+            if (generics.getText(accountname).contentEquals(acc)) {
                 testStepsLog("Account number verified for " + acc);
             } else {
-                testStepsLog("Test Failed---->" + accountdetails.get(0) + " Account displayed, instead of" + acc + "\n");
+                testFailLog("Test Failed---->" + accountname.getText() + " Account displayed, instead of" + acc + "\n");
             }
             switch (type) {
                 case "Type_1":
-                    if (generics.getText(accountdetails.get(2)).contains("Customer (A/R Customer)")) {
+                    if (generics.getText(billingname).contains("Customer (A/R Customer)")) {
                         testStepsLog("Type 1 Customer verified\n");
                     } else {
-                        testStepsLog(generics.getText(accountdetails.get(2)) + " value displaying\n");
+                        testStepsLog(generics.getText(billingname) + " value displaying\n");
                     }
                     break;
                 case "Type_2":
-                    if (generics.getText(accountdetails.get(2)).contains("Site (A/R Customer)")) {
+                    if (generics.getText(billingname).contains("Site (A/R Customer)")) {
                         testStepsLog("Type 2 Customer verified\n");
                     } else {
-                        testStepsLog(generics.getText(accountdetails.get(2)) + " value displaying\n");
+                        testStepsLog(generics.getText(billingname) + " value displaying\n");
                     }
                     break;
-//                case "Type_3":
-//                    if (generics.getText(accountdetails.get(2)).contains("Site (A/R Site)")) {
-//                        testStepsLog("Type 3 Customer verified\n");
-//                    } else {
-//                        testStepsLog(generics.getText(accountdetails.get(2)) + " value displaying\n");
-//                    }
-//                    break;
-                default:
-                    testStepsLog("Error occured " + generics.getText(accountdetails.get(2)) + "\n");
-
-            }
-        }else if(generics.isPresent(unlinksitebuttton)){
-            if (generics.getText(sitedetails.get(0)).contentEquals(acc)) {
-                testStepsLog("Account number verified for " + acc);
-            } else {
-                testStepsLog("Test Failed---->" + sitedetails.get(0) + " Account displayed, instead of" + acc + "\n");
-            }
-            switch (type) {
-//                case "Type_1":
-//                    if (generics.getText(accountdetails.get(2)).contains("Customer (A/R Customer)")) {
-//                        testStepsLog("Type 1 Customer verified\n");
-//                    } else {
-//                        testStepsLog(generics.getText(accountdetails.get(2)) + " value displaying\n");
-//                    }
-//                    break;
-//                case "Type_2":
-//                    if (generics.getText(accountdetails.get(2)).contains("Site (A/R Customer)")) {
-//                        testStepsLog("Type 2 Customer verified\n");
-//                    } else {
-//                        testStepsLog(generics.getText(accountdetails.get(2)) + " value displaying\n");
-//                    }
-//                    break;
                 case "Type_3":
-                    if (generics.getText(sitedetails.get(2)).contains("Site (A/R Site)")) {
+                    if (generics.getText(billingname).contains("Site (A/R Site)")) {
                         testStepsLog("Type 3 Customer verified\n");
                     } else {
-                        testStepsLog(generics.getText(sitedetails.get(2)) + " value displaying\n");
+                        testStepsLog(generics.getText(billingname) + " value displaying\n");
                     }
                     break;
                 default:
-                    testStepsLog("Error occured " + generics.getText(sitedetails.get(2)) + "\n");
+                    testFailLog("Test Fail--> Error occured " + generics.getText(billingname) + " is displaying\n");
 
             }
+//        }else if(generics.isPresent(unlinksitebuttton)){
+//            if (generics.getText(sitedetails.get(0)).contentEquals(acc)) {
+//                testStepsLog("Account number verified for " + acc);
+//            } else {
+//                testFailLog("Test Failed---->" + sitedetails.get(0) + " Account displayed, instead of" + acc + "\n");
+//            }
+//            switch (type) {
+////                case "Type_1":
+////                    if (generics.getText(accountdetails.get(2)).contains("Customer (A/R Customer)")) {
+////                        testStepsLog("Type 1 Customer verified\n");
+////                    } else {
+////                        testStepsLog(generics.getText(accountdetails.get(2)) + " value displaying\n");
+////                    }
+////                    break;
+////                case "Type_2":
+////                    if (generics.getText(accountdetails.get(2)).contains("Site (A/R Customer)")) {
+////                        testStepsLog("Type 2 Customer verified\n");
+////                    } else {
+////                        testStepsLog(generics.getText(accountdetails.get(2)) + " value displaying\n");
+////                    }
+////                    break;
+//                case "Type_3":
+//                    if (generics.getText(sitedetails.get(2)).contains("Site (A/R Site)")) {
+//                        testStepsLog("Type 3 Customer verified\n");
+//                    } else {
+//                        testStepsLog(generics.getText(sitedetails.get(2)) + " value displaying\n");
+//                    }
+//                    break;
+//                default:
+//                    testStepsLog("Error occured " + generics.getText(sitedetails.get(2)) + "\n");
+//
+//            }
 
         }
 
@@ -553,6 +555,7 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
         boolean flag=false;
         generics.waitForElementVisible(linkedaccounttext);
         flag= click_on_account_display(acc);
+        generics.pause(2);
         verify_acc_details(acc,username,type);
 
         //te
@@ -560,25 +563,28 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
         generics.pause(2);
             if(flag) {
                 generics.waitForElementVisible(accsitenamefield);
+                //testStepsLog(accsitenamefield.getAttribute("value"));
                 generics.clickOn(accsitenamefield);
                 generics.type(accsitenamefield, updatedname);
-                generics.pause(1);
                 generics.scrollToTop();
-                if(generics.isClickableElement(savechanges)==true){
-                    generics.clickOn(savechanges);
+                generics.pause(1);
+                if(generics.isClickableElement(savechanges)){
+                    generics.clickOnJS(savechanges);
                 }else{
-                    testStepsLog("Test Fail-->Unable to save changes");
+                    testFailLog("Test Fail-->Unable to save changes");
                 }
-                //generics.clickOn(savechanges);
-                account_setting_messae_displayed(acc);
-//                if(generics.isPresent(gobackbutton)){
-//                    generics.clickOn(gobackbutton);
-//                }
+               // account_setting_messae_displayed(acc);
+                if(accsitenamefield.getAttribute("value").contentEquals(updatedname)){
+                    testStepsLog("Test Pass--> Account name updated, new name is --> "+accsitenamefield.getAttribute("value")+" \n");
+                }else {
+                    testFailLog("Test Fail--> Account name is not updated, name appearing is --> "+accsitenamefield.getAttribute("value")+" \n");
+                }
                 click_on_goback();
                 generics.waitForElementVisible(linkedaccounttext);
+                testStepsLog("Back to link account page\n");
                 check_if_accountsite_nickname_present_in_linkacc_table(acc, updatedname, username);
-            }else if(!flag){
-                testStepsLog(acc+" Account is not present in link account table\n");
+            }else {
+                testFailLog(acc+" Account is not present in link account table\n");
 
             }
     }
@@ -637,7 +643,7 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
                         }
                     }
                     if (!flag1) {
-                        testStepsLog("Test failFor " + acc + " Authorized user--> " + emailaddress + "is not present in link account table for--> " + username + "\n");
+                        testFailLog("Test failFor " + acc + " Authorized user--> " + emailaddress + "is not present in link account table for--> " + username + "\n");
 
                     }
                 }else {

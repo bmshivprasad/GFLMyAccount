@@ -14,7 +14,7 @@ public class account extends EnhancedBaseClass
 {
 
 
-    @Test(dataProvider = "LinkAccount")
+    @Test(dataProvider = "LinkAccount",priority = 1)
 public void TC03_Link_Account_Verification(String username1,String pswrd1, String username2,String pswrd2,String accountnumber1, String postalcode1,String accountnumber2, String postalcode2,String accountnumber3, String postalcode3,String invoicenumber1, String amount1,String invoicenumber2, String amount2,String invoicenumber3, String amount3) throws IOException, InterruptedException {
 
         // System.out.println(username1+","+pswrd1+","+username2+","+pswrd2+","+accountnumber+","+Postalcode);
@@ -32,7 +32,7 @@ public void TC03_Link_Account_Verification(String username1,String pswrd1, Strin
 //        for (int i = 0; i < rowCount + 1; i++) {
 ////        ll.logon(i+1);*/
 
-            try {
+
                 ll.logon(username1, pswrd1);
                 testStepsLog("Accounts Page test cases started");
                 testStepsLog("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -85,17 +85,15 @@ public void TC03_Link_Account_Verification(String username1,String pswrd1, Strin
                 ap.check_if_accounts_present_in_pendinglink_table(accountnumber1, username1);
                 ap.check_if_accounts_present_in_pendinglink_table(accountnumber2, username1);
                 ap.check_if_accounts_present_in_pendinglink_table(accountnumber3, username1);
+                ll.logout(username1);
 
                 Thread.sleep(10);
 
-            } catch (StaleElementReferenceException e) {
 
-                e.printStackTrace();
-            }
         }
 
 
-    @Test(dataProvider = "LinkAccount")
+    @Test(dataProvider = "LinkAccount",priority = 4)
     public void TC04_Unlink_Account_Verification(String username1,String pswrd1, String username2,String pswrd2,String accountnumber1, String postalcode1,String accountnumber2, String postalcode2,String accountnumber3, String postalcode3,String invoicenumber1, String amount1,String invoicenumber2, String amount2,String invoicenumber3, String amount3) throws IOException, InterruptedException {
 
         // System.out.println(username1+","+pswrd1+","+username2+","+pswrd2+","+accountnumber+","+Postalcode);
@@ -121,9 +119,10 @@ public void TC03_Link_Account_Verification(String username1,String pswrd1, Strin
         ap.check_if_accounts_present_in_accountlink_table(accountnumber1, username1);
         ap.check_if_accounts_present_in_accountlink_table(accountnumber2, username1);
         ap.check_if_accounts_present_in_accountlink_table(accountnumber3, username1);
+        ll.logout(username1);
     }
 
-    @Test(dataProvider = "LinkAccount")
+    @Test(dataProvider = "LinkAccount",priority = 2)
     public void TC05_Edit_account_details(String username1,String pswrd1, String username2,String pswrd2,String accountnumber1, String postalcode1,String accountnumber2, String postalcode2,String accountnumber3, String postalcode3,String invoicenumber1, String amount1,String invoicenumber2, String amount2,String invoicenumber3, String amount3) throws IOException, InterruptedException {
       //  System.out.println(username1);
         testCaseLog("TC05_Edit_account_details");
@@ -144,11 +143,12 @@ public void TC03_Link_Account_Verification(String username1,String pswrd1, Strin
         testStepsLog("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
         testStepsLog("Type 3 Account\n");
         ap.edit_account_details(accountnumber3,username1,"updatedacc3","Type_3");
+        ll.logout(username1);
 
 
     }
 
-    @Test(dataProvider = "LinkAccount")
+    @Test(dataProvider = "LinkAccount",priority = 3)
     public void TC06_Add_authorized_user(String username1,String pswrd1, String username2,String pswrd2,String accountnumber1, String postalcode1,String accountnumber2, String postalcode2,String accountnumber3, String postalcode3,String invoicenumber1, String amount1,String invoicenumber2, String amount2,String invoicenumber3, String amount3) throws IOException, InterruptedException {
 
         // System.out.println(username1+","+pswrd1+","+username2+","+pswrd2+","+accountnumber+","+Postalcode);
@@ -164,6 +164,7 @@ public void TC03_Link_Account_Verification(String username1,String pswrd1, Strin
         testStepsLog("-------------------------------Editing Accounts by Accounts number---------------------------------");
         testStepsLog("Type 1 Account\n");
         ap.add_authorized_user(accountnumber1,username1,username2);
+        ll.logout(username1);
     }
 
     @DataProvider(name="LinkAccount")
