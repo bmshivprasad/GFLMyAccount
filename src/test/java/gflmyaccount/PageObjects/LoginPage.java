@@ -4,7 +4,7 @@ package gflmyaccount.PageObjects;
 
 import gflmyaccount.base.Generics;
 import gflmyaccount.testcases.signin;
-import gflmyaccount.utilities.ExcelColumns;
+import gflmyaccount.utilities.ExcelColumnsProfile;
 import org.apache.log4j.Logger;
 
 import org.openqa.selenium.WebDriver;
@@ -14,10 +14,10 @@ import org.openqa.selenium.support.PageFactory;
 
 
 import java.io.IOException;
+import java.util.List;
 
 
-
-public class LoginPage extends signin implements ExcelColumns {
+public class LoginPage extends signin implements ExcelColumnsProfile {
 
     WebDriver localDriver;
     Generics generics;
@@ -75,6 +75,8 @@ public class LoginPage extends signin implements ExcelColumns {
     public WebElement errlogin;
     @FindBy(xpath = "//title[contains(text(),'MyAccountFe')]")
     public WebElement landpagetitle;
+    @FindBy(css = "a[data-toggle='dropdown']")
+    public List<WebElement> drpdownmainheader;
 
 static  String logerror;
 static String titlelpage;

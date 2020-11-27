@@ -1,0 +1,246 @@
+2020-11-30 12:30:29 INFO  BillingAndPayment:228 - Verify_Account_Selection_dropdown_is_visible_on_top_right_corner
+2020-11-30 12:30:29 INFO  BillingAndPayment:229 - +++++++++++++++++++++++++++++++++ Opening the firefox browser +++++++++++++++++++++++++++++++++
+2020-11-30 12:30:32 INFO  LoginPage:234 - Clicked on Email Field 
+2020-11-30 12:32:54 INFO  BillingAndPayment:228 - Verify_Account_Selection_dropdown_is_visible_on_top_right_corner
+2020-11-30 12:32:54 INFO  BillingAndPayment:229 - +++++++++++++++++++++++++++++++++ Opening the firefox browser +++++++++++++++++++++++++++++++++
+2020-11-30 12:32:59 INFO  LoginPage:234 - Clicked on Email Field 
+2020-11-30 12:33:00 INFO  LoginPage:234 - Email entered
+2020-11-30 12:33:02 INFO  LoginPage:234 - Password entered
+2020-11-30 12:33:03 INFO  LoginPage:234 - Clicked on Submit
+2020-11-30 12:33:05 INFO  LandingPage:249 - Account Selection dropdown visible on top right corner : PASS
+2020-11-30 12:33:52 INFO  BillingAndPayment:228 - Verify_Account_Selection_dropdown_is_visible_on_top_right_corner
+2020-11-30 12:33:52 INFO  BillingAndPayment:229 - +++++++++++++++++++++++++++++++++ Opening the firefox browser +++++++++++++++++++++++++++++++++
+2020-11-30 12:33:55 INFO  LoginPage:234 - Clicked on Email Field 
+2020-11-30 12:33:56 INFO  LoginPage:234 - Email entered
+2020-11-30 12:33:58 INFO  LoginPage:234 - Password entered
+2020-11-30 12:34:00 INFO  LoginPage:234 - Clicked on Submit
+2020-11-30 12:34:00 INFO  LandingPage:249 - Account Selection dropdown visible on top right corner : PASS
+2020-11-30 12:51:10 INFO  BillingAndPayment:229 - Verify_Account_Selection_dropdown_is_visible_on_top_right_corner
+2020-11-30 12:51:10 INFO  BillingAndPayment:230 - +++++++++++++++++++++++++++++++++ Opening the firefox browser +++++++++++++++++++++++++++++++++
+2020-11-30 12:51:14 INFO  LoginPage:235 - Clicked on Email Field 
+2020-11-30 12:51:24 INFO  AccountPage:229 - TC06_Add_authorized_user
+2020-11-30 12:51:24 INFO  AccountPage:230 - +++++++++++++++++++++++++++++++++ Opening the firefox browser +++++++++++++++++++++++++++++++++
+2020-11-30 12:51:26 INFO  LoginLogoutPage:235 - Clicked on Email Field 
+2020-11-30 12:51:27 INFO  LoginLogoutPage:235 - Email entered
+2020-11-30 12:51:29 INFO  LoginLogoutPage:235 - Password entered
+2020-11-30 12:51:31 INFO  LoginLogoutPage:235 - Clicked on Submit
+2020-11-30 12:51:36 INFO  LoginLogoutPage:235 - krinaAcc2@gfl.com  logged in successfully
+
+2020-11-30 12:52:09 INFO  AccountPage:229 - TC06_Add_authorized_user
+2020-11-30 12:52:09 INFO  AccountPage:230 - +++++++++++++++++++++++++++++++++ Opening the firefox browser +++++++++++++++++++++++++++++++++
+2020-11-30 12:52:11 INFO  LoginLogoutPage:235 - Clicked on Email Field 
+2020-11-30 12:52:12 INFO  LoginLogoutPage:235 - Email entered
+2020-11-30 12:52:15 INFO  LoginLogoutPage:235 - Password entered
+2020-11-30 12:52:16 INFO  LoginLogoutPage:235 - Clicked on Submit
+2020-11-30 12:52:21 INFO  LoginLogoutPage:235 - krinaAcc2@gfl.com  logged in successfully
+
+2020-11-30 12:52:36 INFO  AccountPage:229 - TC05_Edit_account_details
+2020-11-30 12:52:36 INFO  AccountPage:230 - +++++++++++++++++++++++++++++++++ Opening the firefox browser +++++++++++++++++++++++++++++++++
+2020-11-30 12:52:39 INFO  LoginLogoutPage:235 - Clicked on Email Field 
+2020-11-30 12:52:40 INFO  LoginLogoutPage:235 - Email entered
+2020-11-30 12:52:42 INFO  LoginLogoutPage:235 - Password entered
+2020-11-30 12:52:43 INFO  LoginLogoutPage:235 - Clicked on Submit
+2020-11-30 12:52:48 INFO  LoginLogoutPage:235 - krinaAcc2@gfl.com  logged in successfully
+
+2020-11-30 12:53:15 INFO  AccountPage:229 - TC05_Edit_account_details
+2020-11-30 12:53:15 INFO  AccountPage:230 - +++++++++++++++++++++++++++++++++ Opening the chrome browser +++++++++++++++++++++++++++++++++
+2020-11-30 12:53:18 INFO  LoginLogoutPage:235 - Clicked on Email Field 
+2020-11-30 12:53:19 INFO  LoginLogoutPage:235 - Email entered
+2020-11-30 12:53:22 INFO  LoginLogoutPage:235 - Password entered
+2020-11-30 12:53:23 INFO  LoginLogoutPage:235 - Clicked on Submit
+2020-11-30 12:53:28 INFO  LoginLogoutPage:235 - krinaAcc2@gfl.com  logged in successfully
+
+2020-11-30 12:56:49 INFO  AccountPage:229 - TC03_Link_Account_Verification
+2020-11-30 12:56:49 INFO  AccountPage:230 - +++++++++++++++++++++++++++++++++ Opening the chrome browser +++++++++++++++++++++++++++++++++
+2020-11-30 12:56:53 INFO  LoginLogoutPage:235 - Clicked on Email Field 
+2020-11-30 12:56:54 INFO  LoginLogoutPage:235 - Email entered
+2020-11-30 12:56:57 INFO  LoginLogoutPage:235 - Password entered
+2020-11-30 12:56:58 INFO  LoginLogoutPage:235 - Clicked on Submit
+2020-11-30 12:57:03 INFO  LoginLogoutPage:235 - krinaAcc2@gfl.com  logged in successfully
+
+2020-11-30 14:10:52 INFO  AccountPage:229 - TC03_Link_Account_Verification
+2020-11-30 14:10:52 INFO  AccountPage:230 - +++++++++++++++++++++++++++++++++ Opening the chrome browser +++++++++++++++++++++++++++++++++
+2020-11-30 14:10:55 INFO  LoginLogoutPage:235 - Clicked on Email Field 
+2020-11-30 14:10:56 INFO  LoginLogoutPage:235 - Email entered
+2020-11-30 14:10:59 INFO  LoginLogoutPage:235 - Password entered
+2020-11-30 14:11:00 INFO  LoginLogoutPage:235 - Clicked on Submit
+2020-11-30 14:11:05 INFO  LoginLogoutPage:235 - krinaAcc2@gfl.com  logged in successfully
+
+2020-11-30 14:11:05 INFO  AccountPage:229 - TC05_Edit_account_details
+2020-11-30 14:11:05 INFO  AccountPage:230 - +++++++++++++++++++++++++++++++++ Opening the chrome browser +++++++++++++++++++++++++++++++++
+2020-11-30 14:12:36 INFO  AccountPage:229 - TC06_Add_authorized_user
+2020-11-30 14:12:36 INFO  AccountPage:230 - +++++++++++++++++++++++++++++++++ Opening the chrome browser +++++++++++++++++++++++++++++++++
+2020-11-30 14:14:06 INFO  AccountPage:229 - TC04_Unlink_Account_Verification
+2020-11-30 14:14:06 INFO  AccountPage:230 - +++++++++++++++++++++++++++++++++ Opening the chrome browser +++++++++++++++++++++++++++++++++
+2020-11-30 14:33:51 INFO  AccountPage:229 - TC03_Link_Account_Verification
+2020-11-30 14:33:51 INFO  AccountPage:230 - +++++++++++++++++++++++++++++++++ Opening the chrome browser +++++++++++++++++++++++++++++++++
+2020-11-30 14:34:07 INFO  AccountPage:229 - TC03_Link_Account_Verification
+2020-11-30 14:34:07 INFO  AccountPage:230 - +++++++++++++++++++++++++++++++++ Opening the chrome browser +++++++++++++++++++++++++++++++++
+2020-11-30 14:34:10 INFO  LoginLogoutPage:235 - Clicked on Email Field 
+2020-11-30 14:34:11 INFO  LoginLogoutPage:235 - Email entered
+2020-11-30 14:34:13 INFO  LoginLogoutPage:235 - Password entered
+2020-11-30 14:34:14 INFO  LoginLogoutPage:235 - Clicked on Submit
+2020-11-30 14:34:19 INFO  LoginLogoutPage:235 - krinaAcc2@gfl.com  logged in successfully
+
+2020-11-30 14:34:19 INFO  LoginLogoutPage:235 - Accounts Page test cases started
+2020-11-30 14:34:19 INFO  LoginLogoutPage:235 - +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2020-11-30 14:34:19 INFO  LoginLogoutPage:235 - Accounts page opened
+2020-11-30 14:34:19 INFO  LoginLogoutPage:235 - -------------------------------Linking Accounts by Accounts number---------------------------------
+2020-11-30 14:34:19 INFO  LoginLogoutPage:235 - Link Account Popup opened--> Linking type 1 Account
+
+2020-11-30 14:34:21 INFO  LoginLogoutPage:235 - Clicking on |Link By Account Number option|
+2020-11-30 14:34:21 INFO  LoginLogoutPage:235 - Link by Account number popup opened
+2020-11-30 14:34:27 INFO  LoginLogoutPage:235 - Account values filled
+
+2020-11-30 14:34:32 ERROR LoginLogoutPage:240 - Test Fail-->>Account linking failed because Account is already linked--->KrinaAccType1
+
+2020-11-30 14:34:36 INFO  LoginLogoutPage:235 - ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+2020-11-30 14:34:36 INFO  LoginLogoutPage:235 - Link Account Popup opened--> Linking Type 2 Account
+2020-11-30 14:34:37 INFO  LoginLogoutPage:235 - Clicking on |Link By Account Number option|
+2020-11-30 14:34:37 INFO  LoginLogoutPage:235 - Link by Account number popup opened
+2020-11-30 14:34:43 INFO  LoginLogoutPage:235 - Account values filled
+
+2020-11-30 14:34:48 ERROR LoginLogoutPage:240 - Test Fail-->>Account linking failed because Account is already linked--->KrinaAccType2
+
+2020-11-30 14:34:52 INFO  LoginLogoutPage:235 - ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+2020-11-30 14:34:52 INFO  LoginLogoutPage:235 - Link Account Popup opened--> Linking Type 3 Account
+2020-11-30 14:34:53 INFO  LoginLogoutPage:235 - Clicking on |Link By Account Number option|
+2020-11-30 14:34:53 INFO  LoginLogoutPage:235 - Link by Account number popup opened
+2020-11-30 14:34:59 INFO  LoginLogoutPage:235 - Account values filled
+
+2020-11-30 14:35:04 ERROR LoginLogoutPage:240 - Test Fail-->>Account linking failed due to Validation--->KrinaAccType3
+
+2020-11-30 14:35:04 INFO  LoginLogoutPage:235 - Validation is 
+Accounts with billing type “Site (A/R Site)” must be linked by invoice number. Please try again.
+
+2020-11-30 14:35:08 INFO  LoginLogoutPage:235 - ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+2020-11-30 14:35:08 INFO  LoginLogoutPage:235 - Link Account Popup opened
+
+2020-11-30 14:35:08 INFO  LoginLogoutPage:235 - --------------------------------Linking Accounts by Invoice number---------------------------------
+2020-11-30 14:35:08 INFO  LoginLogoutPage:235 - Link by Invoice Popup opened--> Linking Type 1 invoice
+2020-11-30 14:35:09 INFO  LoginLogoutPage:235 - Clicking on |Link By Invoice Number option|
+2020-11-30 14:35:09 INFO  LoginLogoutPage:235 - Link by Invoice number popup opened
+2020-11-30 14:35:15 INFO  LoginLogoutPage:235 - Invoice values filled
+
+2020-11-30 14:35:21 ERROR LoginLogoutPage:240 - Test Fail-->>Account linking failed because Account is already linked--->701
+
+2020-11-30 14:35:24 INFO  LoginLogoutPage:235 - ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+2020-11-30 14:35:24 INFO  LoginLogoutPage:235 - Link by Invoice Popup opened--> Linking Type 2 invoice
+2020-11-30 14:35:25 INFO  LoginLogoutPage:235 - Clicking on |Link By Invoice Number option|
+2020-11-30 14:35:25 INFO  LoginLogoutPage:235 - Link by Invoice number popup opened
+2020-11-30 14:35:31 INFO  LoginLogoutPage:235 - Invoice values filled
+
+2020-11-30 14:35:37 ERROR LoginLogoutPage:240 - Test Fail-->>Account linking failed because Account is already linked--->703
+
+2020-11-30 14:35:40 INFO  LoginLogoutPage:235 - ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+2020-11-30 14:35:40 INFO  LoginLogoutPage:235 - Link by Invoice Popup opened--> Linking Type 3 invoice
+2020-11-30 14:35:41 INFO  LoginLogoutPage:235 - Clicking on |Link By Invoice Number option|
+2020-11-30 14:35:41 INFO  LoginLogoutPage:235 - Link by Invoice number popup opened
+2020-11-30 14:35:47 INFO  LoginLogoutPage:235 - Invoice values filled
+
+2020-11-30 14:35:52 ERROR LoginLogoutPage:240 - Test Fail-->>Account linking failed because Account is already linked--->706
+
+2020-11-30 14:35:56 INFO  LoginLogoutPage:235 - ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+2020-11-30 14:35:56 INFO  LoginLogoutPage:235 - Check if Accounts are present in Linked Accounts table of krinaAcc2@gfl.com
+
+2020-11-30 14:35:56 INFO  LoginLogoutPage:235 - Test Pass-->Account present in linked Accounts table-->KrinaAccType1 For user--->krinaAcc2@gfl.com
+
+2020-11-30 14:35:56 INFO  LoginLogoutPage:235 - Test Pass-->Account present in linked Accounts table-->KrinaAccType2 For user--->krinaAcc2@gfl.com
+
+2020-11-30 14:35:56 INFO  LoginLogoutPage:235 - Test Pass-->Account present in linked Accounts table-->KrinaAccType3 For user--->krinaAcc2@gfl.com
+
+2020-11-30 14:35:57 INFO  LoginLogoutPage:235 - Clicking on Signout
+2020-11-30 14:36:01 INFO  LoginLogoutPage:235 - User logged out successfully  krinaAcc2@gfl.com
+
+2020-11-30 14:36:02 INFO  LoginLogoutPage:235 - Clicked on Email Field 
+2020-11-30 14:36:03 INFO  LoginLogoutPage:235 - Email entered
+2020-11-30 14:36:06 INFO  LoginLogoutPage:235 - Password entered
+2020-11-30 14:36:07 INFO  LoginLogoutPage:235 - Clicked on Submit
+2020-11-30 14:36:12 INFO  LoginLogoutPage:235 - krinaAcc3@gfl.com  logged in successfully
+
+2020-11-30 14:36:12 INFO  LoginLogoutPage:235 - ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+2020-11-30 14:36:12 INFO  LoginLogoutPage:235 - Link Account Popup opened--> Linking type 1 Account
+
+2020-11-30 14:36:13 INFO  LoginLogoutPage:235 - Clicking on |Link By Account Number option|
+2020-11-30 14:36:13 INFO  LoginLogoutPage:235 - Link by Account number popup opened
+2020-11-30 14:36:20 INFO  LoginLogoutPage:235 - Account values filled
+
+2020-11-30 14:36:25 ERROR LoginLogoutPage:240 - Test Fail-->There is already a pending request to link this account !--->KrinaAccType1
+
+2020-11-30 14:36:28 INFO  LoginLogoutPage:235 - ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+2020-11-30 14:36:28 INFO  LoginLogoutPage:235 - Link Account Popup opened--> Linking type 2 Account
+
+2020-11-30 14:36:30 INFO  LoginLogoutPage:235 - Clicking on |Link By Account Number option|
+2020-11-30 14:36:30 INFO  LoginLogoutPage:235 - Link by Account number popup opened
+2020-11-30 14:36:36 INFO  LoginLogoutPage:235 - Account values filled
+
+2020-11-30 14:36:41 ERROR LoginLogoutPage:240 - Test Fail-->There is already a pending request to link this account !--->KrinaAccType2
+
+2020-11-30 14:36:45 INFO  LoginLogoutPage:235 - ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+2020-11-30 14:36:45 INFO  LoginLogoutPage:235 - Link Account Popup opened--> Linking type 3 Account
+
+2020-11-30 14:36:46 INFO  LoginLogoutPage:235 - Clicking on |Link By Invoice Number option|
+2020-11-30 14:36:46 INFO  LoginLogoutPage:235 - Link by Invoice number popup opened
+2020-11-30 14:36:52 INFO  LoginLogoutPage:235 - Invoice values filled
+
+2020-11-30 14:37:29 INFO  LoginLogoutPage:235 - ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+2020-11-30 14:37:29 INFO  LoginLogoutPage:235 - Test Pass-->Account present in Pending links table-->KrinaAccType1 For user--->krinaAcc3@gfl.com
+
+2020-11-30 14:37:29 INFO  LoginLogoutPage:235 - Test Pass-->Account present in Pending links table-->KrinaAccType2 For user--->krinaAcc3@gfl.com
+
+2020-11-30 14:37:29 INFO  LoginLogoutPage:235 - Test Pass-->Account present in Pending links table-->KrinaAccType3 For user--->krinaAcc3@gfl.com
+
+2020-11-30 14:37:30 INFO  LoginLogoutPage:235 - ElementClickInterceptedException element occured --> retrying
+2020-11-30 14:37:33 INFO  AccountPage:229 - TC05_Edit_account_details
+2020-11-30 14:37:33 INFO  AccountPage:230 - +++++++++++++++++++++++++++++++++ Opening the chrome browser +++++++++++++++++++++++++++++++++
+2020-11-30 14:38:35 INFO  AccountPage:229 - TC06_Add_authorized_user
+2020-11-30 14:38:35 INFO  AccountPage:230 - +++++++++++++++++++++++++++++++++ Opening the chrome browser +++++++++++++++++++++++++++++++++
+2020-11-30 14:39:21 INFO  AccountPage:229 - TC04_Unlink_Account_Verification
+2020-11-30 14:39:21 INFO  AccountPage:230 - +++++++++++++++++++++++++++++++++ Opening the chrome browser +++++++++++++++++++++++++++++++++
+2020-11-30 14:44:37 INFO  BillingAndPayment:229 - Verify_Account_Selection_dropdown_is_visible_on_top_right_corner
+2020-11-30 14:44:37 INFO  BillingAndPayment:230 - +++++++++++++++++++++++++++++++++ Opening the chrome browser +++++++++++++++++++++++++++++++++
+2020-11-30 14:44:41 INFO  LoginPage:235 - Clicked on Email Field 
+2020-11-30 14:44:42 INFO  LoginPage:235 - Email entered
+2020-11-30 14:44:44 INFO  LoginPage:235 - Password entered
+2020-11-30 14:44:45 INFO  LoginPage:235 - Clicked on Submit
+2020-11-30 14:44:47 INFO  LandingPage:250 - Account Selection dropdown visible on top right corner : PASS
+2020-11-30 15:54:57 INFO  AccountPage:229 - TC04_Unlink_Account_Verification
+2020-11-30 15:54:57 INFO  AccountPage:230 - +++++++++++++++++++++++++++++++++ Opening the chrome browser +++++++++++++++++++++++++++++++++
+2020-11-30 15:55:01 INFO  LoginLogoutPage:235 - Clicked on Email Field 
+2020-11-30 15:55:02 INFO  LoginLogoutPage:235 - Email entered
+2020-11-30 15:55:04 INFO  LoginLogoutPage:235 - Password entered
+2020-11-30 15:55:05 INFO  LoginLogoutPage:235 - Clicked on Submit
+2020-11-30 15:55:10 INFO  LoginLogoutPage:235 - krinaAcc2@gfl.com  logged in successfully
+
+2020-11-30 15:55:11 INFO  LoginLogoutPage:235 - Unlink account verification test cases started
+2020-11-30 15:55:11 INFO  LoginLogoutPage:235 - -------------------------------Unlinking Accounts by Accounts number---------------------------------
+2020-11-30 15:55:11 INFO  LoginLogoutPage:235 - Link Account Popup opened--> Linking type 1 Account
+
+2020-11-30 15:55:11 INFO  LoginLogoutPage:235 - Editing Account details:KrinaAccType1
+
+2020-11-30 15:55:12 INFO  LoginLogoutPage:235 - Clicking on Unlink 
+
+2020-11-30 15:55:43 INFO  LoginLogoutPage:235 - Clicking on Remove link 
+
+2020-11-30 15:55:46 INFO  LoginLogoutPage:235 - Test Pass-->Account/Site unlinked successfully--->KrinaAccType1
+
+2020-11-30 15:55:47 INFO  LoginLogoutPage:235 - Back to Link account page 
+
+2020-11-30 15:55:47 INFO  LoginLogoutPage:235 - ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+2020-11-30 15:55:47 INFO  LoginLogoutPage:235 - Link Account Popup opened--> Linking Type 2 Account
+
+2020-11-30 15:55:47 INFO  LoginLogoutPage:235 - Editing Account details:KrinaAccType2
+
+2020-11-30 15:55:48 INFO  LoginLogoutPage:235 - Clicking on Unlink 
+
