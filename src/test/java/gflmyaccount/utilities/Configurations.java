@@ -26,7 +26,6 @@ public interface Configurations {
 
     String BASE_URL = getProperty("wishesURL");
     String FM_URL = getProperty("fleetMapperURL");
-    String MA_URL = getProperty("gflmyaccountURL");
 
     String USER_NAME = getProperty("username");
     String PASSWORD = getProperty("password");

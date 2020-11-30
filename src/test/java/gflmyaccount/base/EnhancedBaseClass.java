@@ -17,8 +17,10 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.IResultMap;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -30,7 +32,6 @@ import org.testng.internal.Utils;
 import java.io.File;
 import java.io.IOException;
 
-import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -39,8 +40,7 @@ import java.util.logging.Level;
 public class EnhancedBaseClass extends ExtentInitializer implements Configurations {
 
     public WebDriver gflmyaccountDriver;
-    public WebDriver wishesdriver;
-    public WebDriver fleetMapperDriver;
+
 
     public SoftAssert sa;
 
@@ -55,30 +55,42 @@ public class EnhancedBaseClass extends ExtentInitializer implements Configuratio
         PropertyConfigurator.configure("Log4j.properties");
         ExtentInitializer.initializeReport(testContext.getCurrentXmlTest().getSuite().getName());
     }
-
-    @BeforeMethod(alwaysRun = true)
-    public void setUp(Method method) {
+//    @BeforeMethod(alwaysRun = true)
+    @BeforeClass(alwaysRun = true)
+    public void setUp() {
 
         sa = new SoftAssert();
-        methodName = method.getName();
+       // methodName = method.getName();
 
-        if (methodName.contains("WS")) {
-            wishesdriver = initiateDriver();
-            wishesdriver.get(BASE_URL);
-        }
-        else if(methodName.contains("FM"))  {
-            fleetMapperDriver = initiateDriver();
-            fleetMapperDriver.get(FM_URL);
-        }
-        else {
-            gflmyaccountDriver= initiateDriver();
-            gflmyaccountDriver.get(MA_URL);
-            //LoginPage login = new LoginPage(gflmyaccountDriver);
+       // if (methodName.contains("WS")) {
+            //wishesDriver = initiateDriver();
+            //wishesDriver.get(BASE_URL);
+      //  } else {
+        gflmyaccountDriver= initiateDriver();
+        gflmyaccountDriver.get(FM_URL);
+            LoginPage login = new LoginPage(gflmyaccountDriver);
+            //login.loginAs(USER_NAME, PASSWORD);
         }
 
-    }
+   // }
 
-
+    //@BeforeMethod(alwaysRun = true)
+//    public void setUp(Method method) {
+//
+//        sa = new SoftAssert();
+//        methodName = method.getName();
+//
+//        if (methodName.contains("WS")) {
+//            wishesDriver = initiateDriver();
+//            wishesDriver.get(BASE_URL);
+//        } else {
+//            fleetMapperDriver = initiateDriver();
+//            fleetMapperDriver.get(FM_URL);
+//            LoginPage login = new LoginPage(fleetMapperDriver);
+//            login.loginAs(USER_NAME, PASSWORD);
+//        }
+//
+//    }
 
     private WebDriver initiateDriver() {
         WebDriver driver;
@@ -95,6 +107,18 @@ public class EnhancedBaseClass extends ExtentInitializer implements Configuratio
                 WebDriverManager.iedriver().setup();
                 driver = new InternetExplorerDriver();
                 break;
+            case "edge":
+            case "Microsoft edge":
+            case "EDGE":
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
+                break;
+            case "Safari":
+            case "Apple Safari":
+            case "safari":
+                //WebDriverManager.safari.SafariDriver;
+                driver = new SafariDriver();
+                break;
             default:
                 WebDriverManager.chromedriver().setup();
                 System.setProperty("webdriver.chrome.silentOutput", "true");
@@ -107,8 +131,8 @@ public class EnhancedBaseClass extends ExtentInitializer implements Configuratio
 
         return driver;
     }
-
-    @AfterMethod(alwaysRun = true)
+    @AfterClass(alwaysRun = true)
+//    @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult testResult) {
 
         String testName;
@@ -156,8 +180,9 @@ public class EnhancedBaseClass extends ExtentInitializer implements Configuratio
     public void cleanupDriver(WebDriver driver) {
         if (driver != null) {
             driver.manage().deleteAllCookies();
-            driver.close();
+            //driver.close();
             driver.quit();
+
         }
     }
 
