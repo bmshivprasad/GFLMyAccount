@@ -6,10 +6,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -56,6 +53,24 @@ public class ExcelUtils implements Configurations {
         }
         return req_data;
     }
+    public XSSFRow getRowData(String fileName, int req_row) {
+        String req_data = "";
+        String fileLocation = TEST_DATA_LOCATION + File.separator + fileName + ".xlsx";
+        //String fileLocation = "C:\\Users\\smanjeshwar\\Documents\\GFLMyAccount\\src\\test\\java\\gfl\\testData\\myprofile.xlsx";
+        XSSFSheet sheet = null;
+
+        FileInputStream file = null;
+        try {
+            file = new FileInputStream(fileLocation);
+            XSSFWorkbook workbook = new XSSFWorkbook(file);
+            sheet = workbook.getSheet("Sheet1");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+            return sheet.getRow(req_row);
+    }
+
+
 
     public int lastRowNumber(String fileName, String sheetName) {
 
