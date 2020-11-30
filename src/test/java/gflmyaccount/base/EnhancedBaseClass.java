@@ -55,42 +55,29 @@ public class EnhancedBaseClass extends ExtentInitializer implements Configuratio
         PropertyConfigurator.configure("Log4j.properties");
         ExtentInitializer.initializeReport(testContext.getCurrentXmlTest().getSuite().getName());
     }
-//    @BeforeMethod(alwaysRun = true)
+
+//  @BeforeMethod(alwaysRun = true)
     @BeforeClass(alwaysRun = true)
     public void setUp() {
 
         sa = new SoftAssert();
-       // methodName = method.getName();
+        // methodName = method.getName();
 
-       // if (methodName.contains("WS")) {
-            //wishesDriver = initiateDriver();
-            //wishesDriver.get(BASE_URL);
-      //  } else {
-        gflmyaccountDriver= initiateDriver();
-        gflmyaccountDriver.get(FM_URL);
-            LoginPage login = new LoginPage(gflmyaccountDriver);
-            //login.loginAs(USER_NAME, PASSWORD);
-        }
-
-   // }
-
-    //@BeforeMethod(alwaysRun = true)
-//    public void setUp(Method method) {
-//
-//        sa = new SoftAssert();
-//        methodName = method.getName();
-//
 //        if (methodName.contains("WS")) {
-//            wishesDriver = initiateDriver();
-//            wishesDriver.get(BASE_URL);
-//        } else {
+//            wishesdriver = initiateDriver();
+//            wishesdriver.get(BASE_URL);
+//        }
+//        else if(methodName.contains("FM"))  {
 //            fleetMapperDriver = initiateDriver();
 //            fleetMapperDriver.get(FM_URL);
-//            LoginPage login = new LoginPage(fleetMapperDriver);
-//            login.loginAs(USER_NAME, PASSWORD);
 //        }
-//
-//    }
+//        else {
+        gflmyaccountDriver = initiateDriver();
+        gflmyaccountDriver.get(FM_URL);
+        LoginPage login = new LoginPage(gflmyaccountDriver);
+        //login.loginAs(USER_NAME, PASSWORD);
+        }
+   // }
 
     private WebDriver initiateDriver() {
         WebDriver driver;
