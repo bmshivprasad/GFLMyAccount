@@ -107,6 +107,7 @@ public class Generics extends EnhancedBaseClass {
         wait.until(ExpectedConditions.visibilityOfAllElements(element));
     }
 
+
     public void scrollToElement(WebElement element) {
         ((JavascriptExecutor) generalDriver).executeScript("arguments[0].scrollIntoView(true);", element);
         ((JavascriptExecutor) generalDriver).executeScript("window.scrollBy(0,-100)", "");

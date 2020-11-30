@@ -32,6 +32,7 @@ import org.testng.internal.Utils;
 import java.io.File;
 import java.io.IOException;
 
+import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -40,7 +41,8 @@ import java.util.logging.Level;
 public class EnhancedBaseClass extends ExtentInitializer implements Configurations {
 
     public WebDriver gflmyaccountDriver;
-
+    public WebDriver wishesdriver;
+    public WebDriver fleetMapperDriver;
 
     public SoftAssert sa;
 
