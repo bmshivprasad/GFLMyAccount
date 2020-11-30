@@ -28,40 +28,11 @@ public class LoginPage extends signin implements ExcelColumnsProfile {
         generics = new Generics(localDriver);
         log4j = Logger.getLogger("LoginPage");
     }
-
-    public void loginAs(String username, String password) {
-
-        generics.moveTo(txtemail);
-        generics.clickOn(txtemail);
-        testStepsLog("Clicked on Email Field ");
-        //String EML = excelUtils.getTestData(PROFILE, row, EMAIL);
-        generics.type(txtemail, username);
-        testStepsLog("Email entered");
-        generics.clickOn(txtpasswword);
-        //String PASS = excelUtils.getTestData(PROFILE, row, PWD);
-        //String RESP = excelUtils.getTestData(PROFILE, row,4);
-        generics.type(txtpasswword, password);
-        testStepsLog("Password entered");
-        generics.clickOn(btnsubmit);
-        testStepsLog("Clicked on Submit");
-        titlelpage=localDriver.getTitle();
-        if (titlelpage.equalsIgnoreCase("MyAccountFe"))
-        {
-            System.out.println("Test Passed : Log in Successful with valid credentials");
-
-        }
-        else {
-
-            System.out.println("Test Passed : Error generated for Invalid credentials = "  + logerror);
-
-        }
-
-    }
     @FindBy(xpath = " //span[contains(text(),'LOGIN')]")
     public WebElement txtlogin;
 
 
-    @FindBy(xpath = "//input[@id='email']")
+    @FindBy(xpath = "//input[@name='Username or email address']")
     public WebElement txtemail;
     @FindBy(xpath = "//input[@id='password']")
     public WebElement txtpasswword;

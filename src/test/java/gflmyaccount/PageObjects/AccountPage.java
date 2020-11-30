@@ -41,17 +41,12 @@ public class AccountPage extends profile implements ExcelColumnsAccount {
 //    static String invoicenumber3;
 //    static String amount3;
 
-//    public AccountPage(WebDriver baseDriver) {
-//        this.localDriver = baseDriver;
-//        PageFactory.initElements(localDriver, this);
-//        generics = new Generics(localDriver);
-//        log4j = Logger.getLogger("LoginLogoutPage");
-//    }
-public AccountPage(WebDriver baseDriver) {
-    PageFactory.initElements(baseDriver, this);
-    generics = new Generics(baseDriver);
-    log4j = Logger.getLogger("AccountPage");
-}
+    public AccountPage(WebDriver baseDriver) {
+        this.localDriver = baseDriver;
+        PageFactory.initElements(localDriver, this);
+        generics = new Generics(localDriver);
+        log4j = Logger.getLogger("LoginLogoutPage");
+    }
 
     @FindBy(css = "[href='/en-CA/accounts']")
     public WebElement accountlink;

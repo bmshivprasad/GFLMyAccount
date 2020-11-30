@@ -32,7 +32,6 @@ import org.testng.internal.Utils;
 import java.io.File;
 import java.io.IOException;
 
-import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -41,8 +40,7 @@ import java.util.logging.Level;
 public class EnhancedBaseClass extends ExtentInitializer implements Configurations {
 
     public WebDriver gflmyaccountDriver;
-    public WebDriver wishesdriver;
-    public WebDriver fleetMapperDriver;
+
 
     public SoftAssert sa;
 
@@ -57,35 +55,42 @@ public class EnhancedBaseClass extends ExtentInitializer implements Configuratio
         PropertyConfigurator.configure("Log4j.properties");
         ExtentInitializer.initializeReport(testContext.getCurrentXmlTest().getSuite().getName());
     }
-
 //    @BeforeMethod(alwaysRun = true)
-//@BeforeClass(alwaysRun = true)
-//    public void setUp(Method method) {
-
-////    }
     @BeforeClass(alwaysRun = true)
     public void setUp() {
 
+        sa = new SoftAssert();
+       // methodName = method.getName();
+
+       // if (methodName.contains("WS")) {
+            //wishesDriver = initiateDriver();
+            //wishesDriver.get(BASE_URL);
+      //  } else {
+        gflmyaccountDriver= initiateDriver();
+        gflmyaccountDriver.get(FM_URL);
+            LoginPage login = new LoginPage(gflmyaccountDriver);
+            //login.loginAs(USER_NAME, PASSWORD);
+        }
+
+   // }
+
+    //@BeforeMethod(alwaysRun = true)
+//    public void setUp(Method method) {
+//
 //        sa = new SoftAssert();
 //        methodName = method.getName();
-//        System.out.println("methodname"+methodName);
+//
 //        if (methodName.contains("WS")) {
-//            wishesdriver = initiateDriver();
-//            wishesdriver.get(BASE_URL);
-//        }
-//        else if(methodName.contains("FM"))  {
+//            wishesDriver = initiateDriver();
+//            wishesDriver.get(BASE_URL);
+//        } else {
 //            fleetMapperDriver = initiateDriver();
 //            fleetMapperDriver.get(FM_URL);
+//            LoginPage login = new LoginPage(fleetMapperDriver);
+//            login.loginAs(USER_NAME, PASSWORD);
 //        }
-//        else {
-            gflmyaccountDriver= initiateDriver();
-            gflmyaccountDriver.get(MA_URL);
-            //LoginPage login = new LoginPage(gflmyaccountDriver);
-//        }
-
-    }
-
-
+//
+//    }
 
     private WebDriver initiateDriver() {
         WebDriver driver;

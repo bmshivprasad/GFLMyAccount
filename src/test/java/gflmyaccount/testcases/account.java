@@ -4,7 +4,6 @@ import gflmyaccount.PageObjects.LoginLogoutPage;
 import gflmyaccount.PageObjects.AccountPage;
 import gflmyaccount.base.EnhancedBaseClass;
 import gflmyaccount.base.Generics;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -13,9 +12,6 @@ import java.io.IOException;
 
 public class account extends EnhancedBaseClass
 {
-    public account() {
-    log4j = Logger.getLogger("account");
-}
 
 
     @Test(dataProvider = "LinkAccount",priority = 1)
