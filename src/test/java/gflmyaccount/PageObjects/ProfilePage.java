@@ -1,24 +1,26 @@
 
 
 package gflmyaccount.PageObjects;
+
+
+
 import gflmyaccount.base.Generics;
 import gflmyaccount.testcases.profile;
 
-import gflmyaccount.utilities.ExcelColumnsProfile;
+import gflmyaccount.utilities.ExcelColumns;
 import org.apache.log4j.Logger;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.asserts.SoftAssert;
 
 
 import java.io.IOException;
-import java.util.List;
 
 
-public class ProfilePage extends profile implements ExcelColumnsProfile {
+
+public class ProfilePage extends profile implements ExcelColumns {
 
     WebDriver localDriver;
     Generics generics;
@@ -30,9 +32,8 @@ public class ProfilePage extends profile implements ExcelColumnsProfile {
         log4j = Logger.getLogger("LoginPage");
     }
 
-    SoftAssert sassert=new SoftAssert();
-    //@FindBy(xpath = "//input[@name='Username or email address']")
-    @FindBy(css = "#email")
+
+    @FindBy(xpath = "//input[@name='Username or email address']")
     public WebElement txtemail;
     @FindBy(xpath = "//input[@id='password']")
     public WebElement txtpasswword;
@@ -44,8 +45,8 @@ public class ProfilePage extends profile implements ExcelColumnsProfile {
     static String titlelpage;
 
     public void logon(int row) throws IOException {
-        //generics.moveTo(txtlogin);
-        //generics.clickOn(txtlogin);
+        generics.moveTo(txtlogin);
+        generics.clickOn(txtlogin);
         generics.moveTo(txtemail);
         generics.clickOn(txtemail);
         testStepsLog("Clicked on Email Field ");
@@ -60,7 +61,6 @@ public class ProfilePage extends profile implements ExcelColumnsProfile {
         generics.clickOn(btnsubmit);
         testStepsLog("Clicked on Submit");
     }
-
     @FindBy(xpath = " //span[contains(text(),'LOGIN')]")
     public WebElement txtlogin;
 
@@ -73,7 +73,7 @@ public class ProfilePage extends profile implements ExcelColumnsProfile {
     @FindBy(xpath = "//input[@ng-reflect-name='firstName']")
     public WebElement txtprflepgefirstname;
 
-    @FindBy(xpath = "//*[@routerlink='/profile']")
+    @FindBy(xpath = "//button[@routerlink='/profile']")
     public WebElement drpprofile;
 
     @FindBy(xpath = "//input[@ng-reflect-name='lastName']")
@@ -91,17 +91,13 @@ public class ProfilePage extends profile implements ExcelColumnsProfile {
     @FindBy(xpath = "//input[@formcontrolname='faxNumber']")
     public WebElement txtfax;
 
-    @FindBy(css = "[formcontrolname='emailAddress']")
-    public WebElement txtprflemailfield;
+    @FindBy(xpath = "//input[@formcontrolname='emailAddress']")
+    public WebElement txtemailfield;
 
-    @FindBy(xpath = "//*[@class='languageFlag']/..")
+    @FindBy(xpath = "//mat-select[@formcontrolname='language']")
     public WebElement drplanguage;
 
-    @FindBy(css = "a[data-toggle='dropdown']")
-    public List<WebElement> drpdownmainheader;
 
-    @FindBy(css = "#phone")
-    public List<WebElement> phonevalue;
 
 
     static String profiletitle;
@@ -126,15 +122,15 @@ public class ProfilePage extends profile implements ExcelColumnsProfile {
 
     public void profilepageview(int row) throws IOException {
 
-        drpdownmainheader.get(0).click();
         generics.moveTo(drpprofile);
         generics.clickOn(drpprofile);
         generics.moveTo(profilepagetitle);
         generics.clickOn(profilepagetitle);
-        profiletitle = generics.getText(profilepagetitle);
-        if (profiletitle.equalsIgnoreCase("MY Profile")) {
-            testStepsLog("Pass : profile page displayed");
-        } else {
+        profiletitle=generics.getText(profilepagetitle);
+        if (profiletitle.equalsIgnoreCase("MY Profile"))
+        {
+        testStepsLog("Pass : profile page displayed");}
+        else{
             testStepsLog("Fail : profile page not displayed");
         }
         generics.moveTo(profilepagehelptext);
@@ -215,9 +211,9 @@ public class ProfilePage extends profile implements ExcelColumnsProfile {
             testStepsLog("Fail : FAX  is not " +fax);
         }
         emailfield=excelUtils.getTestData(PROFILE, row,EMAIL);
-        generics.moveTo(txtprflemailfield);
-        generics.clickOn(txtprflemailfield);
-        email= txtprflemailfield.getAttribute("value");
+        generics.moveTo(txtemailfield);
+        generics.clickOn(txtemailfield);
+        email= txtemailfield.getAttribute("value");
 
         if ( emailfield.equalsIgnoreCase(email))
         {
@@ -236,54 +232,4 @@ public class ProfilePage extends profile implements ExcelColumnsProfile {
             testStepsLog("Pass : Language  is  "+lnge);}
         else{
             testStepsLog("Fail : Language is not " +language);
-        }
-    }
-
-    public void profilepageverify(int row) throws IOException {
-        generics.waitForElementVisible(drpdownmainheader.get(0));
-        drpdownmainheader.get(0).click();
-        generics.moveTo(drpprofile);
-        generics.clickOn(drpprofile);
-        //generics.moveTo(profilepagetitle);
-        //generics.clickOn(profilepagetitle);
-        generics.waitForElementVisible(profilepagetitle);
-        profiletitle = generics.getText(profilepagetitle);
-        if (profiletitle.equalsIgnoreCase("MY Profile")) {
-            testStepsLog("Pass : profile page displayed");
-        } else {
-            testStepsLog("Fail : profile page not displayed\n");
-        }
-        testStepsLog("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-        testStepsLog("Profile page test cases started");
-        testStepsLog("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
-        //First name
-        testStepsLog("|First name value on Site:"+txtprflepgefirstname.getAttribute("value")+"|  |First name value on Excel:"+excelUtils.getTestData(PROFILE, row, ExcelColumnsProfile.FIRSTNAME)+"|" );
-        sassert.assertEquals(txtprflepgefirstname.getAttribute("value"),excelUtils.getTestData(PROFILE, row, ExcelColumnsProfile.FIRSTNAME),"First Name values not matched:\n");
-        //lastname
-        testStepsLog("|Last name value on Site:"+txtprflepgelastname.getAttribute("value")+"|  |Last name value on Excel:"+excelUtils.getTestData(PROFILE, row, ExcelColumnsProfile.LASTNAME)+"|");
-        sassert.assertEquals(txtprflepgelastname.getAttribute("value"),excelUtils.getTestData(PROFILE, row, ExcelColumnsProfile.LASTNAME),"last Name values not matched:\n");
-        //Phone
-        testStepsLog("|Phone value on site:"+phonevalue.get(0).getAttribute("placeholder")+"|  |Phone value on Excel:"+excelUtils.getTestData(PROFILE, row, ExcelColumnsProfile.PHONE)+"|");
-        sassert.assertEquals(phonevalue.get(0).getAttribute("placeholder"),excelUtils.getTestData(PROFILE, row, ExcelColumnsProfile.PHONE),"Phone value not matched:\n");
-        //Extension
-        testStepsLog("|Extension value on Site:"+txtextension.getAttribute("value")+"|  |Extension value on Excel:"+excelUtils.getTestData(PROFILE, row, ExcelColumnsProfile.EXTENSION)+"|");
-        sassert.assertEquals(txtextension.getAttribute("value"),excelUtils.getTestData(PROFILE, row, ExcelColumnsProfile.EXTENSION),"Extension value not matched:\n");
-        //Mobile
-        testStepsLog("|Mobile value on Site:"+phonevalue.get(1).getAttribute("placeholder")+"|  |Mobile value on Excel:"+excelUtils.getTestData(PROFILE, row, ExcelColumnsProfile.MOBILE)+"|");
-        sassert.assertEquals(phonevalue.get(1).getAttribute("placeholder"),excelUtils.getTestData(PROFILE, row, ExcelColumnsProfile.MOBILE),"Mobile value not matched:\n");
-        //Fax
-        testStepsLog("|Fax value on Site:"+phonevalue.get(2).getAttribute("placeholder")+"|  |Fax value on Excel:"+excelUtils.getTestData(PROFILE, row, ExcelColumnsProfile.FAX)+"|");
-        sassert.assertEquals(phonevalue.get(2).getAttribute("placeholder"),excelUtils.getTestData(PROFILE, row, ExcelColumnsProfile.FAX),"Fax value not matched:\n");
-        //Email
-        testStepsLog("|Email value on Site:"+txtprflemailfield.getAttribute("value")+"|  |Email value on Excel:"+excelUtils.getTestData(PROFILE, row, ExcelColumnsProfile.EMAIL)+"|");
-        sassert.assertEquals(txtprflemailfield.getAttribute("value"),excelUtils.getTestData(PROFILE, row, ExcelColumnsProfile.EMAIL),"Email value not matched:\n");
-        //Language
-        testStepsLog("|Language value on Site:"+drplanguage.getText()+"|  |Language value on Excel:"+excelUtils.getTestData(PROFILE, row, ExcelColumnsProfile.LANGUAGE)+"|\n");
-        sassert.assertEquals(drplanguage.getText(),excelUtils.getTestData(PROFILE, row, ExcelColumnsProfile.LANGUAGE),"Language value not matched:\n");
-        testStepsLog("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-        sassert.assertAll("Profile values not matched\n");
-        testStepsLog("Profile page values verified");
-
-
-    }
-}
+        }    }}

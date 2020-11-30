@@ -1,4 +1,5 @@
-/*package gflmyaccount.base;
+/*
+package gflmyaccount.base;
 
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
@@ -62,9 +63,14 @@ public class EndToEndBaseClass extends ExtentInitializer implements Configuratio
         if (methodName.contains("WS")) {
             myaccountDriver = initiateDriver(myaccountDriver);
             myaccountDriver.get(BASE_URL);
-        } else {
+        }
+        else if(methodName.contains("FM"))  {
             fleetMapperDriver = initiateDriver(fleetMapperDriver);
             fleetMapperDriver.get(FM_URL);
+        }
+        else {
+            fleetMapperDriver = initiateDriver(fleetMapperDriver);
+            fleetMapperDriver.get(MA_URL);
         }
 
     }
@@ -259,5 +265,4 @@ public class EndToEndBaseClass extends ExtentInitializer implements Configuratio
             }
         }
     }
-
-}   */
+}*/
