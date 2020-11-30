@@ -1,7 +1,6 @@
 package gflmyaccount.base;
 
 //import com.sun.tools.javac.jvm.Gen;
-import gflmyaccount.PageObjects.AccountPage;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
@@ -25,24 +24,9 @@ public class Generics extends EnhancedBaseClass {
     }
 
     public void clickOn(WebElement element) {
-        try {
-            wait.until(ExpectedConditions.elementToBeClickable(element));
-            element.click();
-            pause(1);
-        }
-        catch(StaleElementReferenceException e){
-            testStepsLog("Stale element occured --> retrying");
-            pause(1);
-            wait.until(ExpectedConditions.elementToBeClickable(element));
-            element.click();
-
-        }catch(ElementClickInterceptedException e){
-            testStepsLog("ElementClickInterceptedException element occured --> retrying");
-            pause(2);
-            wait.until(ExpectedConditions.elementToBeClickable(element));
-            element.click();
-
-        }
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        element.click();
+        pause(1);
     }
 
     public void type(WebElement element, String text) {
@@ -107,6 +91,7 @@ public class Generics extends EnhancedBaseClass {
         wait.until(ExpectedConditions.visibilityOfAllElements(element));
     }
 
+
     public void scrollToElement(WebElement element) {
         ((JavascriptExecutor) generalDriver).executeScript("arguments[0].scrollIntoView(true);", element);
         ((JavascriptExecutor) generalDriver).executeScript("window.scrollBy(0,-100)", "");
@@ -144,22 +129,8 @@ public class Generics extends EnhancedBaseClass {
     }
 
     public void clickOnJS(WebElement element) {
-       try {
-           JavascriptExecutor executor = (JavascriptExecutor) generalDriver;
-           executor.executeScript("arguments[0].click();", element);
-       }
-        catch(StaleElementReferenceException e){
-           testStepsLog("Stale element occured --> retrying");
-            wait.until(ExpectedConditions.elementToBeClickable(element));
-            element.click();
-
-        }catch(ElementClickInterceptedException e){
-           testStepsLog("ElementClickInterceptedException element occured --> retrying");
-            pause(1);
-           wait.until(ExpectedConditions.elementToBeClickable(element));
-            element.click();
-
-        }
+        JavascriptExecutor executor = (JavascriptExecutor) generalDriver;
+        executor.executeScript("arguments[0].click();", element);
     }
 
     public void pause(int seconds) {
@@ -191,18 +162,6 @@ public class Generics extends EnhancedBaseClass {
         wait.until(ExpectedConditions.visibilityOfAllElements(element));
         return element.getAttribute(attribute);
     }
-    public boolean isClickableElement(WebElement element)
-    {
-        try
-        {
-            wait.until(ExpectedConditions.elementToBeClickable(element));
-            return true;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
-    }
 
     public String getOrdinal(int number) {
         String[] sufixes = new String[]{"th", "st", "nd", "rd", "th", "th", "th", "th", "th", "th"};
@@ -233,15 +192,4 @@ public class Generics extends EnhancedBaseClass {
     public void openFM() {
         generalDriver.get(FM_URL);
     }
-
-//    public void click_on_element_by_text(String text) {
-//        WebElement elm = null;
-//        for (elm:linkingoptions){
-//            if (elm.getText().equalsIgnoreCase(text)) {
-//                break;
-//            }
-//        }
-//    }
-
-
 }
